@@ -25,8 +25,9 @@
         <%= f.submit 'Login', class: 'btn btn-primary' %>
       </div>
     <% end %>
-  
+      
     <%= link_to 'New user? register here', new_user_registration_path %><br>
+    <%= link_to "Sign in with Google", user_google_oauth2_omniauth_authorize_path %><br>
     <%= link_to 'Forgot your password?', new_user_password_path %>
 </div>
   
