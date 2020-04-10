@@ -59,3 +59,4 @@ gem "devise-bootstrap-views", "~> 1.1"
 
 gem "bootstrap", "~> 4.4"
 gem 'jquery-rails'
+gem 'omniauth-google-oauth2'
