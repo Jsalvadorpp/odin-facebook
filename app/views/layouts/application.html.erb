@@ -10,8 +10,11 @@
   </head>
 
   <body>
-    <%= render 'partials/navbar'%>
-    <%= yield %>
-    <%= render 'partials/footer'%>
+    <div id='main-container'>
+      <%= render 'partials/navbar'%>
+      <%= render 'partials/alerts'%>
+      <%= yield %><br><br>
+      <%= render 'partials/footer'%>
+    </div>
   </body>
 </html>

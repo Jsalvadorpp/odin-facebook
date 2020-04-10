@@ -1,11 +1,10 @@
 <div class='container'>
-    <h1>Home</h1>
-
+ 
     <% if user_signed_in? %>
+        <!--@ show here user dashboard if user is signed in -->
         <%= link_to 'Logout', destroy_user_session_path , :method => :delete %>
     <% else %>
-        <%= link_to 'Sign in', new_user_session_path %><br>
-        <%= link_to 'New user? register here', new_user_registration_path %>
+        <%= render 'partials/login_form' %>
     <% end %>
 
 </div>
