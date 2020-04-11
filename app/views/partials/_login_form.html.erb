@@ -26,8 +26,15 @@
       </div>
     <% end %>
       
+    <%= link_to user_google_oauth2_omniauth_authorize_path do %>
+      <div class="google-btn">
+        <div class="google-icon-wrapper">
+          <img class="google-icon" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"/>
+        </div>
+        <p class="btn-text"><b>Sign in with google</b></p>
+      </div>
+    <% end %>
     <%= link_to 'New user? register here', new_user_registration_path %><br>
-    <%= link_to "Sign in with Google", user_google_oauth2_omniauth_authorize_path %><br>
     <%= link_to 'Forgot your password?', new_user_password_path %>
 </div>
   
