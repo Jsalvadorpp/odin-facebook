@@ -2,7 +2,7 @@
  
     <% if user_signed_in? %>
         <!--@ show here user dashboard if user is signed in -->
-        <%= link_to 'Logout', destroy_user_session_path , :method => :delete %>
+        <%= render 'pages/dashboard' %>
     <% else %>
         <%= render 'partials/login_form' %>
     <% end %>
