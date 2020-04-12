@@ -1,10 +1,10 @@
-<div class='container'>
- 
-    <% if user_signed_in? %>
-        <!--@ show here user dashboard if user is signed in -->
-        <%= render 'pages/dashboard' %>
-    <% else %>
+<% if user_signed_in? %>
+    <!--@ show here user dashboard if user is signed in -->
+    <%= render 'pages/dashboard' %>
+<% else %>
+    <div class='container'>
         <%= render 'partials/login_form' %>
-    <% end %>
+    </div>
+<% end %>
 
-</div>
+
