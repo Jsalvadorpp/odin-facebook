@@ -1,7 +1,7 @@
 <div class='profile-background'>
     <div class='background-content'>
-        <h1><%= current_user.name.capitalize %></h1>
-        <h1><%= current_user.last_name.capitalize %></h1>
+        <h1><%= user.name.capitalize %></h1>
+        <h1><%= user.last_name.capitalize %></h1>
     </div> 
 </div><br>
 
@@ -13,8 +13,10 @@
         <div class='card'>
             <div class='card-header bg-info text-white'>About me</div>
             <div class='card-body'>
-                <p><%= current_user.profile_bio %></p>
-                <%= button_to 'Edit' , edit_user_registration_path , method: 'get',class: 'btn btn-success float-right' %>
+                <p><%= user.profile_bio %></p>
+                <% if user_is_permitted? %>
+                    <%= button_to 'Edit' , edit_user_registration_path , method: 'get',class: 'btn btn-success float-right' %>
+                <% end %>
             </div>
         </div><br>
 
@@ -22,7 +24,9 @@
             <div class='card-header bg-info text-white'>Friends</div>
             <div class='card-body'>
                 <p>show friend list</p>
-                <button class='btn btn-success float-right'>More...</button>
+                <% if user_is_permitted? %>
+                    <button class='btn btn-success float-right'>More...</button>
+                <% end %>
             </div>
         </div>
 
@@ -30,6 +34,7 @@
 
     <div class='col-8'>
 
+        <% if user_is_permitted? %>
         <div class='card'>
             <div class='card-header bg-info text-white'>Write a post</div>
             <div class='card-body'>
@@ -37,6 +42,7 @@
                 <button class='btn btn-primary float-right'>Post</button>
             </div>
         </div><br>
+        <% end %>
 
         <p>Posts list</p>
     </div>

@@ -1,6 +1,6 @@
 <% if user_signed_in? %>
     <!--@ show here user dashboard if user is signed in -->
-    <%= render 'pages/dashboard' %>
+    <%= render partial: 'pages/dashboard' , locals: {user: @user} %>
 <% else %>
     <div class='container'>
         <%= render 'partials/login_form' %>
