@@ -3,6 +3,7 @@ Rails.application.routes.draw do
                                       registrations: 'users/profile'}
                                     
   get '/user/profile/:id' => 'user#show'
+  resources :posts , only: [:new, :create]
   #devise_scope :user do
     #get '/users/sign_out' => 'devise/sessions#destroy'
   #end
