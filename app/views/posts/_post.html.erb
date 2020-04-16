@@ -1,0 +1,10 @@
+<div class='card'>
+    <div class='card-header bg-info text-white'>
+        <%= post.creator.name %> posted: 
+        <small class='float-right'><%= time_ago_in_words(post.created_at) %> ago</small>
+    </div>
+
+    <div class='card-body'>
+        <p><%= post.textBody %></p>
+    </div>
+</div><br>
