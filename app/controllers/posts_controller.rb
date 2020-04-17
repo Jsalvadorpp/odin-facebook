@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+    before_action :is_logged?
 
     def create
         @post = current_user.posts.new(post_params)

@@ -7,4 +7,11 @@ class ApplicationController < ActionController::Base
         devise_parameter_sanitizer.permit(:sign_up, keys: [:name,:last_name])
         devise_parameter_sanitizer.permit(:account_update, keys: [:name,:last_name,:profile_bio])
     end
+
+    def is_logged?
+        unless user_signed_in?
+            flash['danger'] = 'Please log in'
+            redirect_to home_path
+        end
+    end
 end
