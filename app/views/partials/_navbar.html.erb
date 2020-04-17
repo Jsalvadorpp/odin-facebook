@@ -9,7 +9,12 @@
     <div class="collapse navbar-collapse" id='navbar-toggler'>
 
         <ul class='navbar-nav'>
-          
+            <%= form_tag(users_list_path, method: 'get', class: 'input-group') do %>
+                <%= text_field_tag('search' , '' , class: 'form-control') %>
+                <div class="input-group-append">
+                    <%= submit_tag('Search',name: nil,class: 'btn btn-secondary')%>
+                </div>  
+            <% end %>
         </ul>
 
         <ul class='navbar-nav ml-auto'>
