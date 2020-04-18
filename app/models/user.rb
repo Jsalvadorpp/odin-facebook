@@ -1,6 +1,9 @@
 class User < ApplicationRecord
   has_many :posts , foreign_key: :creator_id
 
+  has_many :friendships
+  has_many :friends, through: :friendships , source: :friend
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
