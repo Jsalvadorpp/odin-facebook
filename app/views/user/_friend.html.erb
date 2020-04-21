@@ -1,0 +1,6 @@
+<div class='card'>
+    <div class='card-body'>
+        <% full_name = user.name.capitalize + ' ' + user.last_name.capitalize %>
+        <%= link_to full_name, user_profile_path(user.id) %>
+    </div>
+</div><br>

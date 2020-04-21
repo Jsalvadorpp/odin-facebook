@@ -19,4 +19,13 @@ class UserController < ApplicationController
         end
     end
 
+    def friends_list
+        @profile = User.find_by(id: params['id'])
+
+        friendships = @profile.friendships
+        @users = friendships.map{|friendship| friendship.friend}
+
+        render 'user/search'
+    end
+
 end

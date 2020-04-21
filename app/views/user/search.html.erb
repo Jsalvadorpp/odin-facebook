@@ -1,4 +1,10 @@
 <div class='container-fluid'><br>
+
+    <% if current_page?(friends_list_path) %>
+        <% profile_full_name = @profile.name.capitalize + ' ' + @profile.last_name.capitalize %>
+        <h3 class='text-center'><strong><%= profile_full_name %></strong> | friends:</h3>
+    <% end %>
+
     <% @users.each do |user| %>
     <div class='card'>
         <div class='card-body'>
