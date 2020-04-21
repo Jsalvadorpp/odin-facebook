@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   get '/users' => 'user#search' , as: 'users_list'
 
   resources :posts , only: [:new, :create]
+
+  resources :friendships , only: [:create,:destroy]
   #devise_scope :user do
     #get '/users/sign_out' => 'devise/sessions#destroy'
   #end

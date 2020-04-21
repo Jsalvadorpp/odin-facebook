@@ -4,6 +4,15 @@
         <div class='card-body'>
             <% full_name = user.name.capitalize + ' ' + user.last_name.capitalize %>
             <%= link_to full_name, user_profile_path(user.id) %>
+
+            <% if can_be_friends(user) %>
+                 <%= button_to 'Add friend', friendships_path ,method: 'post',params:{user_id: user.id},class: 'btn btn-success float-right',form_class: 'd-inline'%>
+            <% end %>
+
+            <% if already_friends(user)%>
+                <%= button_to 'Remove friend', friendship_path(user.id) ,method: 'delete',class: 'btn btn-danger float-right',form_class: 'd-inline', data:{confirm: "Are you sure you want to remove this friend from you friend list?"}%>
+            <% end %>
+ 
         </div>
     </div><br>
     <% end %>
