@@ -3,9 +3,10 @@ Rails.application.routes.draw do
                                       registrations: 'users/profile'}
                                     
   get '/user/profile/:id' => 'user#show' , as: 'user_profile'
+  get '/notifications' => 'notifications#show' , as: 'user_notifications'
   get '/user/profile/:id/friends' => 'user#friends_list' , as: 'friends_list'
   get '/users' => 'user#search' , as: 'users_list'
-
+ 
   resources :posts , only: [:new, :create]
 
   resources :friendships , only: [:create,:destroy]
