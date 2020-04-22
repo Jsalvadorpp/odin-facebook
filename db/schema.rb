@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_18_042830) do
+ActiveRecord::Schema.define(version: 2020_04_22_032139) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,16 @@ ActiveRecord::Schema.define(version: 2020_04_18_042830) do
     t.bigint "friend_id"
     t.index ["friend_id"], name: "index_friendships_on_friend_id"
     t.index ["user_id"], name: "index_friendships_on_user_id"
+  end
+
+  create_table "notifications", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "from_user_id"
+    t.bigint "to_user_id"
+    t.boolean "checked", default: false
+    t.index ["from_user_id"], name: "index_notifications_on_from_user_id"
+    t.index ["to_user_id"], name: "index_notifications_on_to_user_id"
   end
 
   create_table "posts", force: :cascade do |t|
@@ -50,5 +60,7 @@ ActiveRecord::Schema.define(version: 2020_04_18_042830) do
 
   add_foreign_key "friendships", "users"
   add_foreign_key "friendships", "users", column: "friend_id"
+  add_foreign_key "notifications", "users", column: "from_user_id"
+  add_foreign_key "notifications", "users", column: "to_user_id"
   add_foreign_key "posts", "users", column: "creator_id"
 end
