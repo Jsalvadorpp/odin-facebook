@@ -4,6 +4,8 @@ Rails.application.routes.draw do
                                     
   get '/user/profile/:id' => 'user#show' , as: 'user_profile'
   get '/notifications' => 'notifications#show' , as: 'user_notifications'
+  post '/friendship_request' => 'notifications#create' , as: 'friendship_request'
+  delete '/remove_request' => 'notifications#destroy' , as: 'remove_request'
   get '/user/profile/:id/friends' => 'user#friends_list' , as: 'friends_list'
   get '/users' => 'user#search' , as: 'users_list'
  

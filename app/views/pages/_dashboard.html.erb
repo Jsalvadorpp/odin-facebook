@@ -19,11 +19,16 @@
                 <% end %>
 
                 <% if can_be_friends(user) %>
-                    <%= button_to 'Add friend', friendships_path ,method: 'post',params:{user_id: user.id},class: 'btn btn-success float-right',form_class: 'd-inline'%>
+
+                    <% if request_sent(user) %>
+                        <div class='btn btn-secondary float-right'>Request sent</div>
+                    <% else %>
+                        <%= button_to 'Add friend', friendship_request_path ,method: 'post',params:{user_id: user.id},class: 'btn btn-success float-right',form_class: 'd-inline'%>
+                    <% end %>
                 <% end %>
 
                 <% if already_friends(user)%>
-                    <%= button_to 'Remove friend', friendship_path(user.id) ,method: 'delete',class: 'btn btn-danger float-right',form_class: 'd-inline',data:{confirm: "Are you sure you want to remove this friend from you friend list?"}%>
+                    <%= button_to 'Remove friend', friendship_path(user.id) ,method: 'delete',class: 'btn btn-danger float-right',form_class: 'd-inline', data:{confirm: "Are you sure you want to remove this friend from you friend list?"}%>
                 <% end %>
                 
             </div>

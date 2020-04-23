@@ -12,7 +12,12 @@
             <%= link_to full_name, user_profile_path(user.id) %>
 
             <% if can_be_friends(user) %>
-                 <%= button_to 'Add friend', friendships_path ,method: 'post',params:{user_id: user.id},class: 'btn btn-success float-right',form_class: 'd-inline'%>
+
+                <% if request_sent(user) %>
+                    <div class='btn btn-secondary float-right'>Request sent</div>
+                <% else %>
+                    <%= button_to 'Add friend', friendship_request_path ,method: 'post',params:{user_id: user.id},class: 'btn btn-success float-right',form_class: 'd-inline'%>
+                <% end %>
             <% end %>
 
             <% if already_friends(user)%>

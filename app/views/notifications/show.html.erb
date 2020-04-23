@@ -1,0 +1,15 @@
+<div class='container'><br>
+<% @notifications.each do |notification| %>
+    <div class='card'>
+        <div class='card-header bg-info text-white'>Friendship request from: </div>
+        <div class='card-body'>
+            <% user = notification.from_user %>
+            <% full_name = user.name.capitalize + ' ' + user.last_name.capitalize %>
+            <%= link_to full_name, user_profile_path(user.id) %>
+
+            <%= button_to 'Decline',remove_request_path,method:'delete',params:{user_id: user.id},class: 'btn btn-danger float-right' ,form_class: 'd-inline'%> 
+            <%= button_to 'Accept',friendships_path ,method: 'post',params:{user_id: user.id},class: 'btn btn-success float-right' , form_class: 'd-inline'%>
+        </div>
+    </div>
+<% end %>
+</div>
