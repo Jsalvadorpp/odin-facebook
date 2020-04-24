@@ -3,6 +3,10 @@ class UserController < ApplicationController
 
     def show
         @user = User.find_by(id: params['id'])
+
+        user_friendships = "SELECT friend_id FROM friendships WHERE user_id = #{@user.id} "
+        @feed_posts = Post.where("creator_id IN (#{user_friendships}) OR creator_id = ?",@user.id)
+
         @post = Post.new 
     end
 

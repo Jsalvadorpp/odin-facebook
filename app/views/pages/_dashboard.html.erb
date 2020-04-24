@@ -53,7 +53,7 @@
             <%= render 'posts/new' %>
         <% end %>
 
-        <% user.posts.each do |post|%>
+        <% @feed_posts.each do |post|%>
             <%= render partial: 'posts/post' , locals: {post: post} %>
         <% end %>
 
