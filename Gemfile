@@ -61,3 +61,4 @@ gem "bootstrap", "~> 4.4"
 gem 'jquery-rails'
 gem 'omniauth-google-oauth2'
 gem "figaro"   #gem for environment variables
+gem "font-awesome-rails", "~> 4.7"
