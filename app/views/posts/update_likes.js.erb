@@ -1,0 +1,3 @@
+var post_likes = document.getElementById("post<%= @post.id%>_likes")
+post_likes.innerHTML = "<%= j (render partial: 'post_likes', locals: {post: @post}) %>"
+

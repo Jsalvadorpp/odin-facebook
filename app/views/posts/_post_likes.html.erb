@@ -1,0 +1,13 @@
+<% if post_liked(post.id) %>
+
+    <%= button_to remove_like_path , method: 'delete' , class: 'btn', remote: true ,params: {post_id: post.id} do %>
+        <%= fa_icon "heart" , class: "text-danger" %> <%= post.likes.count %>
+    <% end %>
+
+<% else %>
+
+    <%= button_to like_post_path , method: 'post' , class: 'btn' , remote: true ,params: {post_id: post.id} do %>
+        <%= fa_icon "heart" , class: "text-secondary" %> <%= post.likes.count %>
+    <% end %>
+
+<% end %>

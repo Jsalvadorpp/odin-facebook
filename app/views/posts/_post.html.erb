@@ -6,5 +6,6 @@
 
     <div class='card-body'>
         <p><%= post.textBody %></p>
+        <div class='like_button' id="post<%= post.id %>_likes"><%= render partial: 'posts/post_likes', locals: {post: post} %></div>
     </div>
 </div><br>

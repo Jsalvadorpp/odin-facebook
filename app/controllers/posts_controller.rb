@@ -13,6 +13,26 @@ class PostsController < ApplicationController
         end
     end
 
+    def add_like
+        @post = Post.find_by(id: params['post_id'])
+        Like.create(liked_post: @post,user: current_user)
+
+        respond_to do |f|
+            f.js {render action: 'update_likes'}
+        end
+    end
+
+    def remove_like
+        @post = Post.find_by(id: params['post_id'])
+
+        like = @post.likes.find_by(user_id: current_user)
+        like.destroy
+        
+        respond_to do |f|
+            f.js {render action: 'update_likes'}
+        end
+    end
+
     private def post_params
         params.require('post').permit(:textBody)
     end

@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   get '/users' => 'user#search' , as: 'users_list'
  
   resources :posts , only: [:new, :create]
+  post 'add_like' => 'posts#add_like' , as: 'like_post'
+  delete 'remove_like' => 'posts#remove_like' , as: 'remove_like'
 
   resources :friendships , only: [:create,:destroy]
   #devise_scope :user do
