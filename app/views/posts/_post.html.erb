@@ -6,6 +6,23 @@
 
     <div class='card-body'>
         <p><%= post.textBody %></p>
+
         <div class='like_button' id="post<%= post.id %>_likes"><%= render partial: 'posts/post_likes', locals: {post: post} %></div>
+        <hr>
+
+        <%= post.comments.count %> Comments: 
+
+        <% post.comments.each do |comment| %>
+            <%= render partial: 'comments/comment' , locals: {comment: comment} %>
+        <% end %>
+
+        <%= form_for(post.comments.new, url: new_comment_path) do |f| %>
+            <div class='card comment_post'> 
+                <%= f.text_area :content, placeholder: 'comment here', class: 'form-control' ,rows: 1%><br>
+                <%= f.hidden_field :post_id , value: post.id%>
+                <%= f.submit "Comment", class: "btn btn-secondary btn-sm" %>
+            </div>
+        <% end %>
+
     </div>
 </div><br>

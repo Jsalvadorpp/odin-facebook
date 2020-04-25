@@ -6,6 +6,8 @@ class User < ApplicationRecord
 
   has_many :notifications ,foreign_key: :to_user_id
 
+  has_many :comments
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,

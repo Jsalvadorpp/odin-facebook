@@ -1,0 +1,7 @@
+<div class='card card-body comment_box'>
+   
+    <% full_name = comment.user.name.capitalize + ' ' + comment.user.last_name.capitalize %>
+    <%= link_to full_name, user_profile_path(comment.user.id) %>
+    <p><%= comment.content %></p>
+    
+</div>

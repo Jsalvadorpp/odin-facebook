@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   resources :posts , only: [:new, :create]
   post 'add_like' => 'posts#add_like' , as: 'like_post'
   delete 'remove_like' => 'posts#remove_like' , as: 'remove_like'
+  post 'new_comment' => 'comments#new' , as: 'new_comment'
 
   resources :friendships , only: [:create,:destroy]
   #devise_scope :user do
