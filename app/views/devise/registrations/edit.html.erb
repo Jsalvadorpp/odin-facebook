@@ -19,7 +19,11 @@
     <%= f.text_area :profile_bio, autofocus: true, autocomplete: 'email', class: 'form-control' %>
   </div>
 
- 
+  <div class="form-group">
+    <%= f.label 'Select a profile avatar' %><br>
+    <%= f.file_field :avatar %>
+  </div>
+
   <div class="form-group">
     <%= f.submit t('.update'), class: 'btn btn-primary' %>
   </div>
@@ -27,3 +31,5 @@
 
 <%= link_to "Go back", home_path %>
 </div>
+
+
