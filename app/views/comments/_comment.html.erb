@@ -1,7 +1,17 @@
-<div class='card card-body comment_box'>
-   
-    <% full_name = comment.user.name.capitalize + ' ' + comment.user.last_name.capitalize %>
-    <%= link_to full_name, user_profile_path(comment.user.id) %>
-    <p><%= comment.content %></p>
+<div class='card comment_box'>
+
+    <div class='card-header'>
+
+        <% if comment.user.avatar.attached? %>
+            <%= image_tag comment.user.avatar.variant(resize: "38x38"), class: 'rounded-circle mr-1' %>
+        <% else %>
+            <%= fa_stacked_icon "user", base: "circle", class: "user_icon" %>
+        <% end %>
+
+        <% full_name = comment.user.name.capitalize + ' ' + comment.user.last_name.capitalize %>
+        <%= link_to full_name, user_profile_path(comment.user.id) %>
+    </div>
+
+    <p class='card-body'><%= comment.content %></p>
     
 </div>

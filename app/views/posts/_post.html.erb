@@ -1,6 +1,13 @@
 <div class='card'>
     <div class='card-header bg-info text-white'>
-        <%= post.creator.name %> posted: 
+
+        <% if post.creator.avatar.attached? %>
+            <%= image_tag post.creator.avatar.variant(resize: "38x38"), class: 'rounded-circle mr-1' %>
+        <% else %>
+            <%= fa_stacked_icon "user", base: "circle", class: "user_icon" %>
+        <% end %>
+
+        <%= post.creator.name.capitalize %> <%= post.creator.last_name.capitalize %> posted: 
         <small class='float-right'><%= time_ago_in_words(post.created_at) %> ago</small>
     </div>
 
