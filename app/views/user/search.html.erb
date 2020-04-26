@@ -8,6 +8,13 @@
     <% @users.each do |user| %>
     <div class='card'>
         <div class='card-body'>
+
+            <% if user.avatar.attached? %>
+                <%= image_tag user.avatar.variant(resize: "50x50"), class: 'rounded-circle mr-1' %>
+            <% else %>
+                <%= fa_stacked_icon "user", base: "circle", class: "fa-2x user_preview" %>
+            <% end %>
+
             <% full_name = user.name.capitalize + ' ' + user.last_name.capitalize %>
             <%= link_to full_name, user_profile_path(user.id) %>
 
