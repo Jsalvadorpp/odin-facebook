@@ -1,5 +1,11 @@
 # README
 
+This is a copy of the basic functionalities of facebook using ruby on rails , you can see this project
+live in this [link](https://ruby-facebook.herokuapp.com/)
+
+# from: [the Odin Project](https://www.theodinproject.com/dashboard)
+
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
