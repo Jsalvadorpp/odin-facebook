@@ -65,4 +65,4 @@ gem "font-awesome-rails", "~> 4.7"
 
 gem "mini_magick", "~> 4.10"
 
-gem "image_processing", "~> 1.10"
+gem "image_processing", "~> 1.12"
